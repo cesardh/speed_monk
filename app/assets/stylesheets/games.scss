@@ -1,0 +1,51 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+#juego1 {
+
+}
+
+.container {
+  width: 100%;
+  background: #BF6262;
+
+}
+
+header{
+  height: 200px;
+  width: 100%;
+  text-align: center;
+}
+
+.logo{
+  height: 100%;
+  width:200px;
+  background: white;
+  display: inline-block;
+}
+
+.juego {
+  display: inline-block;
+  width: 33%;
+  text-align: center;
+  padding: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  margin: 40px;
+  height: 300px;
+
+}
+
+.juego>p{
+  font-size: 1.5em;
+  color: white;
+  margin-bottom: 25px;
+
+}
+
+img{
+  width: 100%;
+}
