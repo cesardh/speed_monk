@@ -3,33 +3,50 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 *{
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-html{
-  overflow: hidden;
 }
 
 #wrapper{
   position: absolute;
   height: 100%;
   width: 100%;
-  overflow-x: scroll;
+  min-height: 300px;
+  min-width: 500px;
+  overflow: hidden; 
+
 }
 
-//home container
-div.container{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: black;
-  color: white;
+#wrapper>.container{
+  position: relative;
+  width: 200%;
+  height: inherit;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+
 }
 
 //games container
-div.games{
+.container>.seccion{
   background: #888;
-  left: 100%;
+  position: relative;
+  color: white;
+  width: 50%;
+  height: inherit;
+  flex: 0 1 auto;
+
+  border-style: dotted;
+  border-width: 1px;
+}
+
+.home>div{
+  width: 300px;
+  height: 200px;
+  position:relative;
+  background: red;
+}
+
+.home>div:nth-child(odd){
+  background: green;
 }
