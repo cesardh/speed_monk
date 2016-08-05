@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root :to => "games#games"
+  root :to => "home#index"
+
+  get 'games' => 'games#games'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
