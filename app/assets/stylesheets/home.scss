@@ -13,7 +13,7 @@
   width: 100%;
   min-height: 300px;
   min-width: 500px;
-  overflow: hidden; 
+  overflow: auto; 
 
 }
 
@@ -40,13 +40,10 @@
   border-width: 1px;
 }
 
-.home>div{
+.box{
   width: 300px;
-  height: 200px;
-  position:relative;
-  background: red;
-}
-
-.home>div:nth-child(odd){
-  background: green;
+  height: 300px;
+  background: white;
+  position: relative;
+  left: 500px;
 }
