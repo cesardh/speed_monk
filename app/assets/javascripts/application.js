@@ -16,25 +16,42 @@
 //= require_tree.
 
 
+
+
 $(document).ready(function() {
 
-  var $w = $(window).width();
-  var w = '' + $w + 'px';
-  var p = parseInt($('.box').css('left'));
-  var vel = -0.1;
+  var personaje = new Parallax( $('.uno'), -0.08);
+  var logo = new Parallax( $('.dos'), -0.1);
+  var fondo = new Parallax( $('.tres'), -0.3);
+
 
   $('#wrapper').mousemove(function(event){
 
-  	var mx = event.pageX;
-  	var pos = p + mx * vel;
+  	mx = event.pageX;
+    $('.text').text( 'parado en: ' + mx);
 
-  	$('.text').text( 'parado en: ' + mx);
-  	$('.box').css('left', pos + 'px');
+    personaje.mover();
+    logo.mover();
+    fondo.mover();
   })
 
 
-
  });
+
+var mx;
+
+function Parallax(elem, vel){
+  this.v = vel;
+  this.elem = elem;
+  this.elemPos = parseInt(this.elem.css('left'));
+
+  this.mover = function(){
+    this.posX = this.elemPos + mx * vel;
+    this.elem.css('left', this.posX + 'px');
+  }
+}
+
+
 
 
 

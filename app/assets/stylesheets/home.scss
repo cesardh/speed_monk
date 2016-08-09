@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 *{
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +15,7 @@
   width: 100%;
   min-height: 300px;
   min-width: 500px;
-  overflow: auto; 
+  overflow: auto;
 
 }
 
@@ -44,6 +46,18 @@
   width: 300px;
   height: 300px;
   background: white;
-  position: relative;
+  position: absolute;
   left: 500px;
+}
+
+.box:nth-child(odd){
+  background: black;
+}
+
+footer{
+  text-align: center;
+  position: fixed;
+  bottom: 15px;
+  color: white;
+  font-size: 1.6em
 }
