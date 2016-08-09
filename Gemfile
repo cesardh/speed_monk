@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #otras gemas
 gem 'normalize-rails'
-gem "font-awesome-rails"
+gem 'font-awesome-sass'
 
 
 group :development, :test do
