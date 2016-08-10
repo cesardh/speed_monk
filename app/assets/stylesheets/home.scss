@@ -45,16 +45,23 @@
   border-width: 1px;
 }
 
-.box{
-  width: 300px;
-  height: 300px;
-  background: white;
+.home>img{
   position: absolute;
-  left: 500px;
 }
 
-.box:nth-child(odd){
-  background: black;
+.uno{
+  height: 100%;
+}
+
+.dos{
+  height: 40%;
+  left: 70%;
+}
+
+.tres{
+  left: 10%;
+  top: 10%;
+  height: 85%;
 }
 
 #social{

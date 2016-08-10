@@ -20,9 +20,9 @@
 
 $(document).ready(function() {
 
-  var personaje = new Parallax( $('.uno'), -0.08);
+  var fondo = new Parallax( $('.uno'), -0.08);
   var logo = new Parallax( $('.dos'), -0.1);
-  var fondo = new Parallax( $('.tres'), -0.3);
+  var personaje = new Parallax( $('.tres'), -0.2);
 
 
   $('#wrapper').mousemove(function(event){
