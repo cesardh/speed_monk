@@ -5,7 +5,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-
+$fondo: #7f5858;
+$cuadros: url(<%= asset_path 'cuadros.png' %>);
 
 *{
   padding: 0;
@@ -21,9 +22,11 @@
   overflow-y: hidden;
   overflow-x: auto;
 
+
 }
 
 #wrapper>.landing{
+  background-color: $fondo;
   position: relative;
   width: 200%;
   height: inherit;
@@ -31,44 +34,53 @@
   flex-wrap: nowrap;
   justify-content: flex-start;
 
+
 }
 
 
 .landing>.seccion{
-  background: #888;
   position: relative;
   color: white;
   width: 50%;
   height: inherit;
   flex: 0 1 auto;
-
-  border-style: dotted;
-  border-width: 1px;
 }
 
 .container{
   margin: 0 auto;
-  width: 1100px;
+  width: 90%;
+  max-width: 900px;
+  min-width: 600px;
   height: inherit;
   position: relative;
+  background-image: $cuadros;
+  background-attachment: fixed;
+
 }
 
 .home img{
   position: absolute;
 }
 
-.uno{
-  width: 110%;
+.templo{
+  height: 100%;
+  left: -10%;
 }
 
 .dos{
   height: 55%;
-  left: 65%;
+  right: 30%;
 }
 
 .tres{
-  top: 10%;
+  bottom: 1%;
   height: 85%;
+}
+
+.g-play{
+  height: 10%;
+  left: 40%;
+  top: 40%;
 }
 
 #social{
@@ -85,3 +97,4 @@
   font-size: 1em;
   margin: 0 20px;
 }
+

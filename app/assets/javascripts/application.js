@@ -20,34 +20,45 @@
 
 $(document).ready(function() {
 
-  var fondo = new Parallax( $('.uno'), -0.04);
+  var templo = new Parallax( $('.uno'), -0.04);
   var logo = new Parallax( $('.dos'), -0.07);
   var personaje = new Parallax( $('.tres'), -0.1);
+  var globoPlay = new Parallax( $('.play'), -0.14);
+  var globoVideo = new Parallax( $('.video'), -0.1);
+
+  var globos = new Parallax( $('.globos'), -0.1);
+
 
 
   $('#wrapper').mousemove(function(event){
 
   	mx = event.pageX;
-    $('.text').text( 'parado en: ' + mx);
+  	my = event.pageY;
 
     personaje.mover();
     logo.mover();
-    fondo.mover();
+    templo.mover();
+    globoPlay.mover();
   })
 
 
  });
 
 var mx;
+var my;
 
 function Parallax(elem, vel){
   this.v = vel;
   this.elem = elem;
-  this.elemPos = parseInt(this.elem.css('left'));
+  this.elemX = parseInt(this.elem.css('left'));
+  this.elemY = parseInt(this.elem.css('top'));
 
   this.mover = function(){
-    this.posX = this.elemPos + mx * vel;
+    this.posX = this.elemX + mx * vel;
+    this.posY = this.elemY + my * vel*0.6;
+
     this.elem.css('left', this.posX + 'px');
+    this.elem.css('top', this.posY + 'px');
   }
 }
 
