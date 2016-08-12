@@ -49,9 +49,10 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
 .container{
   margin: 0 auto;
   width: 90%;
-  max-width: 900px;
-  min-width: 600px;
+  max-width: 1000px;
+  min-width: 500px;
   height: inherit;
+  min-height: 600px;
   position: relative;
   background-image: $cuadros;
   background-attachment: fixed;
@@ -63,31 +64,35 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
 }
 
 .templo{
-  height: 100%;
-  left: -10%;
+  width: 110%;
+  left: -5%;
 }
 
 .logo{
-  height: 55%;
-  right: 30%;
+  width: 45%;
+  right: 0%;
+  top: 5%;
 }
 
 .monje{
-  bottom: 1%;
-  height: 85%;
+  width: 85%;
+  left: -5%;
+  top: 10%;
+
 }
 
 .g_video{
-  height: 10%;
-  left: 50%;
+  width: 8%;
+  left: 40%;
   top: 40%;
 }
 
 .g_play{
-  height: 13%;
-  right: -20%;
+  width: 12%;
+  right: 2%;
   top: 50%;
 }
+
 
 #social{
   position: fixed;
@@ -102,5 +107,6 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
   color: white;
   font-size: 0.9em;
   margin: 0 20px;
+  vertical-align: baseline;
 }
 

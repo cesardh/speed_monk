@@ -24,22 +24,40 @@ $(document).ready(function() {
   var logo = new Parallax( $('.logo'), -0.07);
   var monje = new Parallax( $('.monje'), -0.09);
   var globoVideo = new Parallax( $('.g_video'), -0.12);
-  var globoPlay = new Parallax( $('.g_play'), -0.2);
+  var globoPlay = new Parallax( $('.g_play'), -0.12);
+
   var globo = [];
+  var globoPos = [
+    [10, 30, 5],
+    [5, 37, 10],
+    [4, 60, 13],
+    [8, 10, 70],
+    [5, 25, 60]
+  ];
 
 
 
   for (var i = 0; i < 5; i++) {
+
+    $('.globo' + i).css({
+      width: globoPos[i][0] + '%',
+      right: globoPos[i][1] + '%',
+      top: globoPos[i][2] + '%'
+    });
+
     var random = Math.random() * 0.15 + 0.05;
     globo[i] = new Parallax( $('.globo' + i)  , -random);
+
+
   };
 
 
 
   $('#wrapper').mousemove(function(event){
 
-  	mx = event.pageX;
-  	my = event.pageY;
+    var wcenter = $(window).width()/2;
+  	mx = event.pageX - wcenter;
+  	my = event.pageY - 100;
 
     monje.mover();
     logo.mover();
@@ -62,12 +80,12 @@ var my;
 function Parallax(elem, vel){
   this.v = vel;
   this.elem = elem;
-  this.elemX = parseInt(this.elem.css('left'));
-  this.elemY = parseInt(this.elem.css('top'));
+  this.elemX = parseInt(this.elem.position().left);
+  this.elemY = parseInt(this.elem.position().top);
 
   this.mover = function(){
     this.posX = this.elemX + mx * vel;
-    this.posY = this.elemY + my * vel*0.6;
+    this.posY = this.elemY + my * (vel/2);
 
     this.elem.css('left', this.posX + 'px');
     this.elem.css('top', this.posY + 'px');
