@@ -63,6 +63,26 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
   position: absolute;
 }
 
+.grad{
+
+  position: absolute;
+  height: 110%;
+  width: 100%;
+  z-index: 100;
+
+
+  background: rgba(0,0,0,0);
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0,0,0,0)), color-stop(11%, rgba(0,0,0,0)), color-stop(64%, rgba(0,0,0,0.5)), color-stop(100%, rgba(0,0,0,0.5)));
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
+  background: -o-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
+  background: -ms-radial-gradient(center, ellipse cover, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+
+
+}
+
 .templo{
   width: 110%;
   left: -5%;
@@ -85,12 +105,14 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
   width: 8%;
   left: 40%;
   top: 40%;
+  z-index: 101;
 }
 
 .g_play{
   width: 12%;
   right: 2%;
   top: 50%;
+  z-index: 101;
 }
 
 
@@ -99,7 +121,8 @@ $cuadros: url(<%= asset_path 'cuadros.png' %>);
   bottom: 20px;
   text-align: center;
   width: 100%;
-  z-index: 2;
+  z-index: 101;
+  opacity: 0.7;
 
 }
 

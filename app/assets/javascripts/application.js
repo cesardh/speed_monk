@@ -56,8 +56,9 @@ $(document).ready(function() {
   $('#wrapper').mousemove(function(event){
 
     var wcenter = $(window).width()/2;
+    var hcenter = $(window).height()/2;
   	mx = event.pageX - wcenter;
-  	my = event.pageY - 100;
+  	my = event.pageY - hcenter;
 
     monje.mover();
     logo.mover();
@@ -66,6 +67,7 @@ $(document).ready(function() {
     globoPlay.mover();
 
     for (var i = 0; i < globo.length; i++) {
+      //globo[i].vy = -globo[i].vx * 2;
       globo[i].mover()
     }
 
@@ -78,14 +80,15 @@ var mx;
 var my;
 
 function Parallax(elem, vel){
-  this.v = vel;
+  this.vx = vel;
+  this.vy = vel/2
   this.elem = elem;
   this.elemX = parseInt(this.elem.position().left);
   this.elemY = parseInt(this.elem.position().top);
 
   this.mover = function(){
-    this.posX = this.elemX + mx * vel;
-    this.posY = this.elemY + my * (vel/2);
+    this.posX = this.elemX + mx * this.vx;
+    this.posY = this.elemY + my * this.vy;
 
     this.elem.css('left', this.posX + 'px');
     this.elem.css('top', this.posY + 'px');
