@@ -4,16 +4,26 @@
 		<div class="seccion home">
 
 	      <div class="container">
-	      	<%= image_tag "templo.png", :class => "templo uno"%>
-			<%= image_tag "logo.png", :class => "dos"%>
-			<%= image_tag "monje.png", :class => "tres"%>
-			<%= image_tag "globo.png", :class => "g-play play"%>
+	      	<%= image_tag "templo.png", :class => "templo"%>
+    			<%= image_tag "logo.png", :class => "logo"%>
+    			<%= image_tag "monje.png", :class => "monje"%>
+    			<%= image_tag "globo.png", :class => "g_video"%>
+          <%= image_tag "globo.png", :class => "g_play"%>
+
+          <%5.times do |n|%>
+            <%= image_tag "globo.png", :class => "globo#{n}"%>
+          <%end%>
+
 	      </div>
 
       <div id="social">
-        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-        <a href="#"><i class="fa fa-gavel" aria-hidden="true"></i></a>
+
+        <%= %>
+        <a href="http://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="http://www.behance.net"><i class="fa fa-behance" aria-hidden="true"></i></a>
+        <i class="fa fa-gavel" aria-hidden="true"></i>
+        <i class="fa fa-globe" aria-hidden="true"></i>
+
       </div>
 
 		</div>

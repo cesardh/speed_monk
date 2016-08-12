@@ -20,13 +20,19 @@
 
 $(document).ready(function() {
 
-  var templo = new Parallax( $('.uno'), -0.04);
-  var logo = new Parallax( $('.dos'), -0.07);
-  var personaje = new Parallax( $('.tres'), -0.1);
-  var globoPlay = new Parallax( $('.play'), -0.14);
-  var globoVideo = new Parallax( $('.video'), -0.1);
+  var templo = new Parallax( $('.templo'), -0.04);
+  var logo = new Parallax( $('.logo'), -0.07);
+  var monje = new Parallax( $('.monje'), -0.09);
+  var globoVideo = new Parallax( $('.g_video'), -0.12);
+  var globoPlay = new Parallax( $('.g_play'), -0.2);
+  var globo = [];
 
-  var globos = new Parallax( $('.globos'), -0.1);
+
+
+  for (var i = 0; i < 5; i++) {
+    var random = Math.random() * 0.15 + 0.05;
+    globo[i] = new Parallax( $('.globo' + i)  , -random);
+  };
 
 
 
@@ -35,14 +41,20 @@ $(document).ready(function() {
   	mx = event.pageX;
   	my = event.pageY;
 
-    personaje.mover();
+    monje.mover();
     logo.mover();
     templo.mover();
+    globoVideo.mover();
     globoPlay.mover();
+
+    for (var i = 0; i < globo.length; i++) {
+      globo[i].mover()
+    }
+
   })
 
 
- });
+});
 
 var mx;
 var my;
