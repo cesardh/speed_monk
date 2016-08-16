@@ -20,11 +20,12 @@
 
 $(document).ready(function() {
 
-  var templo = new Parallax( $('.templo'), -0.04);
+  var templo = new Parallax( $('.templo'), -0.02);
   var logo = new Parallax( $('.logo'), -0.07);
   var monje = new Parallax( $('.monje'), -0.09);
   var globoVideo = new Parallax( $('.g_video'), -0.12);
   var globoPlay = new Parallax( $('.g_play'), -0.12);
+  var bambu = new Parallax( $('.bambu'), -0.15);
 
   var globo = [];
   var globoPos = [
@@ -65,6 +66,7 @@ $(document).ready(function() {
     templo.mover();
     globoVideo.mover();
     globoPlay.mover();
+    bambu.mover();
 
     for (var i = 0; i < globo.length; i++) {
       //globo[i].vy = -globo[i].vx * 2;

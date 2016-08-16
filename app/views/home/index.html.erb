@@ -3,32 +3,35 @@
   <img src="" alt="" class="grad">
   <div class="landing">
 
-    <div class="seccion home">
+    <div class="section home">
 
       <div class="container">
-        <%= image_tag "templo.png", :class => "templo"%>
-        <%= image_tag "logo.png", :class => "logo"%>
-        <%= image_tag "monje.png", :class => "monje"%>
-        <%= image_tag "globo.png", :class => "g_video"%>
-        <%= image_tag "globo.png", :class => "g_play"%>
+          <%= image_tag "templo.png", :class => "templo"%>
+          <%= image_tag "monje.png", :class => "monje"%>
 
-        <%5.times do |n|%>
-          <%= image_tag "globo.png", :class => "globo#{n}"%>
-        <%end%>
+          <%= image_tag "bambu2.png", :class => "bambu2 bambu"%>
+          <%= image_tag "logo.png", :class => "logo"%>
+
+          <%5.times do |n|%>
+            <%= image_tag "globo.png", :class => "globo#{n}"%>
+          <%end%>
+
+          <a href=""><%= image_tag "globo.png", :class => "g_video"%></a>
+          <a href=""><%= image_tag "globo.png", :class => "g_play"%></a>
 
       </div>
 
-
-
-      <div id="social">
-        <a href="http://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-        <a href="http://www.behance.net"><i class="fa fa-behance" aria-hidden="true"></i></a>
-        <i class="fa fa-gavel" aria-hidden="true"></i>
-        <i class="fa fa-globe" aria-hidden="true"></i>
-      </div>
     </div>
 
-    <div class="seccion games">Games</div>
+    <div class="section games">Games</div>
 
   </div>
+
+  <div id="social">
+    <a href="http://www.facebook.com"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+    <a href="http://www.behance.net"><i class="fa fa-behance" aria-hidden="true"></i></a>
+    <a href=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
+    <a href=""><i class="fa fa-globe" aria-hidden="true"></i></a>
+  </div>
+
 </div>
