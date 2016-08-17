@@ -25,7 +25,8 @@ $(document).ready(function() {
   var monje = new Parallax( $('.monje'), -0.09);
   var globoVideo = new Parallax( $('.g_video'), -0.12);
   var globoPlay = new Parallax( $('.g_play'), -0.12);
-  var bambu = new Parallax( $('.bambu'), -0.15);
+  var bambu1 = new Parallax( $('.bambu1'), -0.15);
+  var bambu2 = new Parallax( $('.bambu2'), -0.15);
 
   var globo = [];
   var globoPos = [
@@ -66,7 +67,8 @@ $(document).ready(function() {
     templo.mover();
     globoVideo.mover();
     globoPlay.mover();
-    bambu.mover();
+    bambu1.mover();
+    bambu2.mover();
 
     for (var i = 0; i < globo.length; i++) {
       //globo[i].vy = -globo[i].vx * 2;
