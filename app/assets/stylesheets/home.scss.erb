@@ -7,6 +7,7 @@
 
 $fondo: #7f5858;
 $cuadros: url(<%= asset_path 'cuadros.png' %>);
+$ref: url(<%= asset_path 'fondo.png' %>);
 
 *{
   padding: 0;
@@ -20,7 +21,8 @@ body{
 #wrapper{
   height: 100%;
   width: 100%;
-  overflow: auto;
+  position: absolute;
+  overflow: hidden;
 
   >.landing{
     position: absolute;
@@ -37,20 +39,22 @@ body{
   }
 }
 
+.home{
 
-.container{
-  margin: auto;
-  width: 1000px;
-  height: 600px;
-  position: relative;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: $cuadros;
-  background-attachment: fixed;
+  >.container{
+    margin: auto;
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: $cuadros;
+    background-attachment: fixed;
 
-  img{position: absolute;}
+    img{position: absolute;}
+  }
 }
 
 
@@ -125,5 +129,27 @@ body{
     &:hover{
       opacity: 1;
     }
+  }
+}
+
+.games{
+
+  >.container{
+    display: flex;
+    display: -webkit-flex;
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    top: 30%;
+    position: relative;
+
+    >.option{
+      flex: 1;
+      margin: 50px;
+      background-color: lightyellow;
+      background-size: cover;
+      position: relative;
+    }
+
   }
 }

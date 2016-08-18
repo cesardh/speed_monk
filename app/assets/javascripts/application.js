@@ -24,7 +24,7 @@ $(document).ready(function() {
   var logo = new Parallax( $('.logo'), -0.07);
   var monje = new Parallax( $('.monje'), -0.09);
   var globoVideo = new Parallax( $('.g_video'), -0.12);
-  var globoPlay = new Parallax( $('.g_play'), -0.12);
+  globoPlay = new Parallax( $('.g_play'), -0.12);
   var bambu1 = new Parallax( $('.bambu1'), -0.15);
   var bambu2 = new Parallax( $('.bambu2'), -0.15);
 
@@ -49,7 +49,6 @@ $(document).ready(function() {
 
     var random = Math.random() * 0.15 + 0.05;
     globo[i] = new Parallax( $('.globo' + i)  , -random);
-
 
   };
 
@@ -77,6 +76,8 @@ $(document).ready(function() {
 
   })
 
+  $('.g_play').on('click', scroll);
+
 
 });
 
@@ -97,6 +98,18 @@ function Parallax(elem, vel){
     this.elem.css('left', this.posX + 'px');
     this.elem.css('top', this.posY + 'px');
   }
+}
+
+var globoPlay;
+
+function scroll(){
+  var ww = $(window).width();
+  $('#wrapper').animate({scrollLeft: ww + 'px'}, 2000);
+  despl();
+}
+
+function despl(){
+  globoPlay.elemX += 300;
 }
 
 
