@@ -23,8 +23,8 @@ $(document).ready(function() {
   var templo = new Parallax( $('.templo'), -0.02);
   var logo = new Parallax( $('.logo'), -0.07);
   var monje = new Parallax( $('.monje'), -0.09);
-  var globoVideo = new Parallax( $('.g_video'), -0.12);
-  globoPlay = new Parallax( $('.g_play'), -0.12);
+  var globoVideo = new Parallax( $('#g_video'), -0.12);
+  globoPlay = new Parallax( $('#g_play'), -0.12);
   var bambu1 = new Parallax( $('.bambu1'), -0.15);
   var bambu2 = new Parallax( $('.bambu2'), -0.15);
 
@@ -68,6 +68,7 @@ $(document).ready(function() {
     globoPlay.mover();
     bambu1.mover();
     bambu2.mover();
+    globoPlay.log;
 
     for (var i = 0; i < globo.length; i++) {
       //globo[i].vy = -globo[i].vx * 2;
@@ -76,7 +77,7 @@ $(document).ready(function() {
 
   })
 
-  $('.g_play').on('click', scroll);
+  $('#g_play').on('click', scroll);
 
 
 });
@@ -88,8 +89,9 @@ function Parallax(elem, vel){
   this.vx = vel;
   this.vy = vel/2
   this.elem = elem;
-  this.elemX = parseInt(this.elem.position().left);
-  this.elemY = parseInt(this.elem.position().top);
+  this.elemX = this.elem.position().left;
+  this.elemY = this.elem.position().top;
+  this.log = console.log(this.elemX);
 
   this.mover = function(){
     this.posX = this.elemX + mx * this.vx;
@@ -98,19 +100,26 @@ function Parallax(elem, vel){
     this.elem.css('left', this.posX + 'px');
     this.elem.css('top', this.posY + 'px');
   }
+
+  this.trasladar = function(left, top, vel) {
+    this.elem.animate({ left: '+='+left+'px', top: '+='+top+'px' }, vel});
+  }
 }
 
 var globoPlay;
 
 function scroll(){
   var ww = $(window).width();
-  $('#wrapper').animate({scrollLeft: ww + 'px'}, 2000);
-  despl();
+  if (globoPlay.elemX < 1000) {
+    //globoPlay.elemX += 400;
+    globoPlay.trasladar(400, 0, 3000);
+    $('#wrapper').animate({scrollLeft: ww + 'px'}, 2000);
+  } else {
+    globoPlay.elemX -= 400;
+    $('#wrapper').animate({scrollLeft: '0'}, 2000);
+  }
 }
 
-function despl(){
-  globoPlay.elemX += 300;
-}
 
 
 
