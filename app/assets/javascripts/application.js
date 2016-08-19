@@ -16,17 +16,23 @@
 //= require_tree.
 
 
-
-
-$(document).ready(function() {
+$(document).ready(function(){
+  var alto = $(window).height();
+  $("body").append('<div id="pre-load-web">cargando</div>');
+  $("#pre-load-web").css({
+    height: alto+"px",
+    background: "white",
+    width: '100%',
+    position: "absolute",
+    zIndex: "200"});
 
   var templo = new Parallax( $('.templo'), -0.02);
   var logo = new Parallax( $('.logo'), -0.07);
   var monje = new Parallax( $('.monje'), -0.09);
   var globoVideo = new Parallax( $('#g_video'), -0.12);
-  globoPlay = new Parallax( $('#g_play'), -0.12);
   var bambu1 = new Parallax( $('.bambu1'), -0.15);
   var bambu2 = new Parallax( $('.bambu2'), -0.15);
+  globoPlay = new Parallax( $('#g_play'), -0.12);
 
   var globo = [];
   var globoPos = [
@@ -58,17 +64,17 @@ $(document).ready(function() {
 
     var wcenter = $(window).width()/2;
     var hcenter = $(window).height()/2;
-  	mx = event.pageX - wcenter;
-  	my = event.pageY - hcenter;
+    mx = event.pageX - wcenter;
+    my = event.pageY - hcenter;
 
     monje.mover();
     logo.mover();
     templo.mover();
-    globoVideo.mover();
-    globoPlay.mover();
     bambu1.mover();
     bambu2.mover();
-    globoPlay.log;
+    globoVideo.mover();
+    globoPlay.mover();
+
 
     for (var i = 0; i < globo.length; i++) {
       //globo[i].vy = -globo[i].vx * 2;
@@ -79,8 +85,14 @@ $(document).ready(function() {
 
   $('#g_play').on('click', scroll);
 
-
 });
+
+
+$(window).load(function() {
+  $("#pre-load-web").delay(0).fadeOut(1000);
+});
+
+
 
 var mx;
 var my;
@@ -89,9 +101,10 @@ function Parallax(elem, vel){
   this.vx = vel;
   this.vy = vel/2
   this.elem = elem;
-  this.elemX = this.elem.position().left;
+  this.trX = 0;
+  this.elemX = this.elem.position().left + this.trX;
   this.elemY = this.elem.position().top;
-  this.log = console.log(this.elemX);
+  ;
 
   this.mover = function(){
     this.posX = this.elemX + mx * this.vx;
@@ -102,8 +115,26 @@ function Parallax(elem, vel){
   }
 
   this.trasladar = function(left, top, vel) {
-    this.elem.animate({ left: '+='+left+'px', top: '+='+top+'px' }, vel});
+    this.left;
+    this.top;
+
+    this.elem.animate({ left: '+='+left+'px', top: '+='+top+'px' }, {
+      duration: vel,
+      step: function(now, fx){
+
+        if (fx.prop == 'left'){
+          this.left = fx.now - fx.start;
+        } else {
+          this.top = fx.now - fx.start;
+        }
+
+        console.log(this.left , this.trX);
+
+      }
+    });
+    this.trX = this.left;
   }
+
 }
 
 var globoPlay;
