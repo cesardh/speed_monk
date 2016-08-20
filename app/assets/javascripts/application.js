@@ -104,32 +104,26 @@ function Parallax(elem, vel){
   this.trX = 0;
   this.elemX = this.elem.position().left + this.trX;
   this.elemY = this.elem.position().top;
-  ;
 
   this.mover = function(){
-    this.posX = this.elemX + mx * this.vx;
-    this.posY = this.elemY + my * this.vy;
+    var posX = this.elemX + mx * this.vx;
+    var posY = this.elemY + my * this.vy;
 
-    this.elem.css('left', this.posX + 'px');
-    this.elem.css('top', this.posY + 'px');
+    this.elem.css('left', posX + 'px');
+    this.elem.css('top', posY + 'px');
   }
 
   this.trasladar = function(left, top, vel) {
-    this.left;
-    this.top;
-
+    this.left = this.left;
     this.elem.animate({ left: '+='+left+'px', top: '+='+top+'px' }, {
       duration: vel,
       step: function(now, fx){
 
         if (fx.prop == 'left'){
           this.left = fx.now - fx.start;
-        } else {
-          this.top = fx.now - fx.start;
+          console.log('1-' + this.left)
         }
-
-        console.log(this.left , this.trX);
-
+        console.log('2-' + this.left);
       }
     });
     this.trX = this.left;
