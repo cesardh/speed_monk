@@ -9,29 +9,27 @@
           <%= image_tag "templo.png", :class => "templo"%>
           <%= image_tag "monje.png", :class => "monje"%>
 
-          <%= image_tag "logo.png", :class => "logo"%>
+          <%= image_tag "logo4.png", :class => "logo"%>
           <%= image_tag "bambu1.png", :class => "bambu1"%>
           <%= image_tag "bambu2.png", :class => "bambu2"%>
 
-          <%5.times do |n|%>
+          <%4.times do |n|%>
             <%= image_tag "globo.png", :class => "globo#{n}"%>
           <%end%>
 
-          <%= image_tag "globo.png", :id => "g_video", :class => "btn"%>
-          <%= image_tag "globo.png", :id => "g_play", :class => "btn"%>
+          <%= image_tag "video.png", :id => "g_video", :class => "btn"%>
+          <%= image_tag "play.png", :id => "g_play", :class => "btn"%>
+          <%= image_tag "info.png", :id => "g_info", :class => "btn"%>
       </div>
     </div>
 
     <div class="section games">
       <div class="container">
-        <div class="option btn">
-          <img src="" alt="">
+        <div class="option btn j1">
         </div>
-        <div class="option btn">
-          <img src="" alt="">
+        <div class="option btn j2">
         </div>
-        <div class="option btn">
-          <img src="" alt="">
+        <div class="option btn j3">
         </div>
       </div>
 
@@ -39,11 +37,22 @@
 
   </div>
 
+  <div id="video">
+    <iframe width="1000" height="600" src="https://www.youtube.com/embed/d1EnW4kn1kg" frameborder="0" allowfullscreen></iframe>
+  </div>
+
   <div id="social">
+    <div id="legal"> Aqui van los textos legales y derechos de autor</div>
+
     <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, "http://www.facebook.com", :target => "_blank" %>
     <%= link_to '<i class="fa fa-behance" aria-hidden="true"></i>'.html_safe, "http://www.behance.net", :target => "_blank" %>
-    <a href=""><i class="fa fa-gavel" aria-hidden="true"></i></a>
-    <a href=""><i class="fa fa-globe" aria-hidden="true"></i></a>
+    <a href="" class="legal"><i class="fa fa-gavel" aria-hidden="true"></i>
+      <div id="idioma">
+        <li>ES</li>
+        <li>EN</li>
+      </div>
+    </a>
+    <a href="" class="idioma"><i class="fa fa-globe" aria-hidden="true"></i></a>
   </div>
 
 </div>
