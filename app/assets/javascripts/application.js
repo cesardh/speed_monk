@@ -96,20 +96,20 @@ $(document).ready(function(){
     bol = !bol;
   });
 
-  $('.legal').hover(function(){
-    $('#legal').slideToggle();
-  },function(){
-    $('#legal').slideToggle();
+  $('.legal').mouseenter(function(){
+    $('#legal').slideDown();
   });
 
-  $('.idioma').hover(function(){
-    $('#idioma').slideToggle();
-  },function(){
-    $('#idioma').slideToggle();
+  $('#legal').mouseleave(function(){
+    $(this).slideUp();
   });
 
   $('#g_video').click(function(){
-    $('#video').fadeIn();
+    $('#video').fadeIn(3000);
+  });
+
+  $('#video').click(function(){
+    $('#video').fadeOut(3000);
   });
 
 });
