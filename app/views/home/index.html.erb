@@ -38,16 +38,28 @@
   </div>
 
   <div id="video">
-    <iframe width="1000" height="600" src="https://www.youtube.com/embed/d1EnW4kn1kg" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/YcaelEmSuZE?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <div id="social">
-    <div id="legal"> Aqui van los textos legales y derechos de autor</div>
+  <div id="about">Acá va el about</div>
 
-    <%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, "http://www.facebook.com", :target => "_blank" %>
-    <%= link_to '<i class="fa fa-behance" aria-hidden="true"></i>'.html_safe, "http://www.behance.net", :target => "_blank" %>
-    <a href="" class="legal"><i class="fa fa-gavel" aria-hidden="true"></i></a>
-    <a href="" class="idioma"><i class="fa fa-globe" aria-hidden="true"></i></a>
-  </div>
+
+  <footer>
+    <ul>
+      <li><%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, "http://www.facebook.com", :target => "_blank" %></li>
+      <li><%= link_to '<i class="fa fa-behance" aria-hidden="true"></i>'.html_safe, "http://www.behance.net", :target => "_blank" %></li>
+
+      <li id="legal"><%=link_to '<i class="fa fa-gavel" aria-hidden="true"></i>'.html_safe, 'javascript:;'%>
+        <div></div>
+      </li>
+
+      <li id="idioma"><%=link_to '<i class="fa fa-globe" aria-hidden="true"></i>'.html_safe, 'javascript:;'%>
+        <ul>
+          <li><a href="#">EN</a></li>
+          <li><a href="#">ES</a></li>
+        </ul>
+      </li>
+    </ul>
+  </footer>
 
 </div>
