@@ -113,8 +113,11 @@ $(document).ready(function(){
   $('#g_video').click(function(){
     if (clickVid == false) {
       var wh = $(window).height();
-      $('#video').fadeIn();
-      desplazar(globoVideo, 0, wh/2, 2000);
+      var ww = $(window).width();
+      $('#video').fadeIn(function(){
+        $('#promo').play();
+      });
+      desplazar(globoVideo, ww/2, -wh/3, 2000);
       clickVid = !clickVid;
     }else if (clickVid == true) {
       $('#video').remove();
