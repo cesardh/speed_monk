@@ -17,16 +17,6 @@
 //= require_tree.
 
 
-
-$("body").append('<div id="pre-load-web">cargando</div>');
-$("#pre-load-web").css({
-  height: "100%",
-  background: "white",
-  width: '100%',
-  position: "absolute",
-  zIndex: "1000"
-});
-
 var logo,
     monje,
     templo,
@@ -203,7 +193,7 @@ $(document).ready(function(){
 
 
 $(window).load(function() {
-  $("#pre-load-web").delay(0).fadeOut(1000);
+  $("#preload").delay(500).fadeOut(1000);
 });
 
 

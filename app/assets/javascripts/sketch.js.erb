@@ -1,0 +1,30 @@
+//= require p5
+//= require p5.dom
+//= require Particulas
+
+
+var particulas = [];
+var part;
+var img;
+var fade = 0;
+var f = 20;
+
+function setup() {
+  var canvas = createCanvas(600, 400);
+  background(100,20,200);
+  canvas.parent('preload');
+  part = new Particula(mouseX,mouseY)
+}
+
+
+function draw() {
+  background(100,20,200);
+  part.update();
+  part.show();
+  fade = constrain(fade - f, 0, 255);
+
+}
+
+function mouseMoved(){
+  fade += f;
+}
