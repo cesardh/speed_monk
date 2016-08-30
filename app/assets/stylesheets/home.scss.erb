@@ -12,8 +12,9 @@ $j1: url(<%= asset_path 'juego1.png' %>);
 $j2: url(<%= asset_path 'juego2.png' %>);
 $j3: url(<%= asset_path 'juego3.png' %>);
 
-$cafe: #3a2121; /*Café oscuro*/
-$claro: #fcefe6; /*claro*/
+$cafe: #3a2121;
+$claro: #fcefe6;
+$crema: #b17468;
 
 *{
   padding: 0;
@@ -75,7 +76,7 @@ body{
     width: 1000px;
     height: 333px;
     margin: 0 auto;
-    top: 300px;
+    top: 250px;
     position: relative;
     z-index: 101;
 
@@ -104,13 +105,14 @@ body{
   position: absolute;
   width: 1000px;
   height: 500px;
-  background: $cafe;
+  background: $claro;
   z-index: 300;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  color: $claro;
+  color: $cafe;
+  opacity: 0.9;
   margin: auto;
   border-radius: 30px;
   padding:20px;
@@ -127,7 +129,7 @@ body{
   width: 8%;
   left: 40%;
   top: 40%;
-  z-index: 201;
+  z-index: 202;
 }
 
 iframe{
@@ -140,6 +142,16 @@ iframe{
   right: 2%;
   top: 50%;
   z-index: 140;
+
+  &:before{
+    content: "";
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top: -50%;
+    left: -50%;
+    background: url(<%= asset_path 'info.png'%>);
+  }
 }
 
 #g_info{
@@ -150,19 +162,16 @@ iframe{
   opacity: 0.7;
 }
 
-.bambu2{
-  left: 90%;
+.bambus{
   height: 150%;
-  opacity: 0.8;
+  //opacity: 0.8;
   top: -15%;
 }
 
-.bambu1{
-  left: -25%;
-  height: 150%;
-  opacity: 0.8;
-  top: -15%;
-}
+.bambu4{left:190%; opacity: 0.5;}
+.bambu3{left: 130%;}
+.bambu2{left: 90%;}
+.bambu1{left: -25%;}
 
 
 .btn{
@@ -249,6 +258,7 @@ footer{
     color: white;
     z-index: 300;
     opacity: 0.8;
+    padding: 30px;
   }
 }
 
@@ -259,13 +269,18 @@ footer{
   display: none;
   height: 100%;
   width: 100%;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   background-color: black;
   text-align: center;
   vertical-align: center;
 }
 
-.grad{
-  position: fixed;
+.home .grad{
+  position: absolute;
   height: 110%;
   width: 100%;
   z-index: 100;
@@ -273,4 +288,23 @@ footer{
   background: rgba(0,0,0,0);
   background: radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 11%, rgba(0,0,0,0.5) 64%, rgba(0,0,0,0.5) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );
+}
+
+.games .grad{
+  position: absolute;
+  height: 110%;
+  width: 100%;
+  z-index: 100;
+
+  background: rgba(0,0,0,0.5);
+  background: linear-gradient(to right, rgba(0,0,0,0.5) 0%, rgba(84,38,6,0.21) 47%, rgba(83,38,6,0.2) 49%, rgba(51,29,5,0.5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#331d05', GradientType=1 );
+}
+
+#bloque{
+  width: 100%;
+  height: 100%;
+  position:fixed;
+  z-index: 201;
+  display: none;
 }

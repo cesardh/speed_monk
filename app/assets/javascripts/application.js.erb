@@ -11,28 +11,49 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.easing
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree.
 
-var globoPlay,
-    logo,
+
+
+$("body").append('<div id="pre-load-web">cargando</div>');
+$("#pre-load-web").css({
+  height: "100%",
+  background: "white",
+  width: '100%',
+  position: "absolute",
+  zIndex: "1000"
+});
+
+var logo,
     monje,
     templo,
+
+    bambu1,
     bambu2,
+    bambu3,
+    bambu4,
+
     globoInfo,
+    globoPlay,
     juegos;
+
 
 var globo = [];
 
+var idUrl = 'fY9Kndy0ZMs';
+var urlPromo = 'https://www.youtube.com/embed/' + idUrl;
+var idPromo = '#promo';
+var promoVideo =
+  '<iframe '
+  +'src="' + urlPromo
+  +'?rel=0&amp;autoplay=1&amp;controls=0&amp;showinfo=0"'
+  +'frameborder="0" allowfullscreen '
+  +'id="'+ idPromo + '"></iframe>';
+
 $(document).ready(function(){
-  $("body").append('<div id="pre-load-web">cargando</div>');
-  $("#pre-load-web").css({
-    height: "100%",
-    background: "white",
-    width: '100%',
-    position: "absolute",
-    zIndex: "1000"});
 
   var grupoParallax = [
     templo = new Parallax( $('.templo'), -0.02),
@@ -40,6 +61,9 @@ $(document).ready(function(){
     monje = new Parallax( $('.monje'), -0.09),
     bambu1 = new Parallax( $('.bambu1'), -0.15),
     bambu2 = new Parallax( $('.bambu2'), -0.15),
+    bambu3 = new Parallax( $('.bambu3'), -0.2),
+    bambu4 = new Parallax( $('.bambu4'), -0.2),
+
 
     globoVideo = new Parallax( $('#g_video'), -0.12),
     globoPlay = new Parallax( $('#g_play'), -0.12),
@@ -99,46 +123,80 @@ $(document).ready(function(){
   var clickAb = false;
   $('#g_info').click(function(event){
     if (clickAb == false) {
-      $('#about').slideDown();
-      desplazar(globoInfo, 200, 0, 2000);
+      $('#about').slideDown({
+        easing: 'easeInOutBack',
+        duration: 1000
+      });
+      desplazar(globoInfo, 200, 0, 2000, true);
       clickAb = !clickAb;
     }else if (clickAb == true) {
-      $('#about').slideUp();
-      desplazar(globoInfo, 0, 0, 2000);
+      $('#about').slideUp({
+        easing: 'easeInOutBack',
+        duration: 1000
+      });
+      desplazar(globoInfo, 0, 0, 2000, true);
       clickAb = !clickAb;
     }
   });
 
   var clickVid = false;
-  $('#g_video').click(function(){
+  $('#g_video').on('click', function(){
     if (clickVid == false) {
       var wh = $(window).height();
       var ww = $(window).width();
-      $('#video').fadeIn(function(){
-        $('#promo').play();
-      });
-      desplazar(globoVideo, ww/2, -wh/3, 2000);
+
+      $('#bloque').show();
+      $('#video').append(promoVideo);
+      $('#video').fadeIn();
+      $('footer').slideUp();
+
+      desplazar(globoVideo, ww/2, -wh/3, 2000, true);
       clickVid = !clickVid;
+
     }else if (clickVid == true) {
-      $('#video').remove();
-      desplazar(globoVideo, 0, 0, 2000);
+      $('#video').fadeOut(function(){
+        $('iframe', this).remove();
+        $('footer').delay(1000).slideDown(1000);
+        $('#bloque').hide();
+      });
+      desplazar(globoVideo, 0, 0, 2000, true);
       clickVid = !clickVid;
     }
   });
 
-  $('#legal').mouseenter(function(event){
-    $('div', this).slideDown(function(){
-      $(this).mouseleave(function(){
-        $(this).slideUp();
-      });
-    });
+  $('#legal').hover(function(){
+    $('div', this).stop().slideDown({
+      easing: 'easeInOutBack',
+      duration: 1000});
+  }, function(){
+    $('div', this).stop().slideUp({
+      easing: 'easeOutBounce',
+      duration: 1000});
   });
 
-  $('#idioma').hover(function(event){
-    event.preventDefault();
-    $('ul', this).slideDown();
-  },function(){
-    $('ul', this).slideUp();
+  $('#idioma').hover(function(){
+    $('ul', this).stop().slideDown();}, function(){
+    $('ul', this).stop().slideUp();
+    }
+  );
+
+
+  var src;
+  $(window).click(function(event){
+    if(event.pageX <= 200){
+      src  = "<%= asset_path 'logo.png' %>";
+      $('.logo').attr("src", src);
+    }else if(event.pageX <= 400){
+      src = "<%= asset_path 'logo2.png' %>";
+      $('.logo').attr("src", src);
+    }else if(event.pageX <= 600){
+      src = "<%= asset_path 'logo3.png' %>";
+      $('.logo').attr("src", src);
+    }else if(event.pageX <= 800){
+      src = "<%= asset_path 'logo4.png' %>";
+      $('.logo').attr("src", src);
+    }
+
   });
 
 });
@@ -177,12 +235,19 @@ function Parallax(elem, vel){
   }
 }
 
-function desplazar(objeto, left, top, time) {
+function desplazar(objeto, left, top, time, anim) {
+  var easingMode;
+  if(anim == true){
+    easingMode = 'easeInOutBack';
+  }else{
+    easingMode = 'swing';
+  }
   objeto.elem.animate({
     countL: left,
     countT: top
   },
   {
+    easing: easingMode,
     duration: time,
     step: function(now, fx){
       if (fx.prop == 'countL') {
@@ -200,27 +265,27 @@ function scrolling(boolean){
   if (boolean == true) {
 
     var calcW = ww/4;
-    desplazar(globoPlay, calcW, 0, 2500);
-    desplazar(logo, ww/1.2, -10, 1500);
-    desplazar(monje, -1000, 0 , 1500);
-    desplazar(templo, 0, -1000 , 1500)
-    desplazar(bambu2, 100, 0, 3000);
+    desplazar(globoPlay, calcW, 0, 2500, false);
+    desplazar(logo, ww/1.2, -10, 1500, true);
+    desplazar(monje, -1000, 0 , 1500, true);
+    desplazar(templo, 0, -1000 , 1500, false)
+    desplazar(bambu2, 100, 0, 3000, false);
     for (var i = 0; i < globo.length; i++) {
-      desplazar(globo[i], 0, -400, 1500);
+      desplazar(globo[i], 0, -400, 1500, true);
     }
     $('.logo').animate({width: '35%'},1000);
     $('#wrapper').animate({scrollLeft: ww + 'px'}, 2500);
   }
   else if (boolean == false) {
-    desplazar(globoPlay, 0, 0, 2500);
+    desplazar(globoPlay, 0, 0, 2500, false);
     $('#wrapper').animate({scrollLeft: '0'}, 2500);
     $('.logo').animate({width: '45%'},1000);
-    desplazar(logo, 0, 0, 2000);
-    desplazar(monje, 0, 0 , 3200);
-    desplazar(templo, 0, 0 , 3000);
-    desplazar(bambu2, 0, 0, 3000);
+    desplazar(logo, 0, 0, 2000, true);
+    desplazar(monje, 0, 0 , 3200, true);
+    desplazar(templo, 0, 0 , 3000, false);
+    desplazar(bambu2, 0, 0, 3000, false);
     for (var i = 0; i < globo.length; i++) {
-      desplazar(globo[i], 0, 0, 3000);
+      desplazar(globo[i], 0, 0, 3000, true);
     }
   };
 }

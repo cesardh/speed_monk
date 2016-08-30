@@ -1,17 +1,20 @@
 <div id="wrapper">
 
-  <img src="" alt="" class="grad">
+
   <div class="landing">
 
     <div class="section home">
+      <img src="" alt="" class="grad">
 
       <div class="container">
           <%= image_tag "templo.png", :class => "templo"%>
           <%= image_tag "monje.png", :class => "monje"%>
 
-          <%= image_tag "logo4.png", :class => "logo"%>
-          <%= image_tag "bambu1.png", :class => "bambu1"%>
-          <%= image_tag "bambu2.png", :class => "bambu2"%>
+          <%= image_tag "logo2.png", :class => "logo"%>
+          <%= image_tag "bambu1.png", :class => "bambus bambu1"%>
+          <%= image_tag "bambu2.png", :class => "bambus bambu2"%>
+          <%= image_tag "bambu1.png", :class => "bambus bambu3"%>
+          <%= image_tag "bambu2.png", :class => "bambus bambu4"%>
 
           <%4.times do |n|%>
             <%= image_tag "globo.png", :class => "globo#{n}"%>
@@ -24,6 +27,9 @@
     </div>
 
     <div class="section games">
+
+      <img src="" alt="" class="grad">
+
       <div class="container">
         <div class="option btn j1">
         </div>
@@ -38,7 +44,7 @@
   </div>
 
   <div id="video">
-    <iframe src="https://www.youtube.com/embed/YcaelEmSuZE?rel=0&amp;autoplay=1&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen id="#promo"></iframe>
+
   </div>
 
   <div id="about">Acá va el about</div>
@@ -46,11 +52,11 @@
 
   <footer>
     <ul>
-      <li><%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, "http://www.facebook.com", :target => "_blank" %></li>
-      <li><%= link_to '<i class="fa fa-behance" aria-hidden="true"></i>'.html_safe, "http://www.behance.net", :target => "_blank" %></li>
+      <li><%= link_to '<i class="fa fa-facebook" aria-hidden="true"></i>'.html_safe, "https://www.facebook.com/withoutbrainart", :target => "_blank" %></li>
+      <li><%= link_to '<i class="fa fa-behance" aria-hidden="true"></i>'.html_safe, "https://www.behance.net/withoutbrain", :target => "_blank" %></li>
 
       <li id="legal"><%=link_to '<i class="fa fa-gavel" aria-hidden="true"></i>'.html_safe, 'javascript:;'%>
-        <div></div>
+        <div>Acá van los términos legales</div>
       </li>
 
       <li id="idioma"><%=link_to '<i class="fa fa-globe" aria-hidden="true"></i>'.html_safe, 'javascript:;'%>
@@ -61,5 +67,6 @@
       </li>
     </ul>
   </footer>
+  <div id="bloque"></div>
 
 </div>

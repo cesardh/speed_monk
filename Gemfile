@@ -34,6 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #otras gemas
 gem 'normalize-rails'
 gem 'font-awesome-sass'
+gem 'jquery-easing-rails', '~> 0.0.2'
 
 
 group :development, :test do
