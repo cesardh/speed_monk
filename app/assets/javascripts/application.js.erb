@@ -16,7 +16,6 @@
 //= require turbolinks
 //= require_tree.
 
-
 var logo,
     monje,
     templo,
@@ -193,7 +192,8 @@ $(document).ready(function(){
 
 
 $(window).load(function() {
-  $("#preload").delay(500).fadeOut(1000);
+  $('#loading').remove();
+  $('canvas').delay(2000).fadeOut(1000);
 });
 
 
@@ -279,6 +279,8 @@ function scrolling(boolean){
     }
   };
 }
+
+
 
 
 
