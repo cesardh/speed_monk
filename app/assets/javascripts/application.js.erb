@@ -169,25 +169,6 @@ $(document).ready(function(){
     }
   );
 
-
-  var src;
-  $(window).click(function(event){
-    if(event.pageX <= 200){
-      src  = "<%= asset_path 'logo.png' %>";
-      $('.logo').attr("src", src);
-    }else if(event.pageX <= 400){
-      src = "<%= asset_path 'logo2.png' %>";
-      $('.logo').attr("src", src);
-    }else if(event.pageX <= 600){
-      src = "<%= asset_path 'logo3.png' %>";
-      $('.logo').attr("src", src);
-    }else if(event.pageX <= 800){
-      src = "<%= asset_path 'logo4.png' %>";
-      $('.logo').attr("src", src);
-    }
-
-  });
-
 });
 
 
