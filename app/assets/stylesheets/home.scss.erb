@@ -15,6 +15,7 @@ $j3: url(<%= asset_path 'juego3.png' %>);
 $cafe: #3a2121;
 $claro: #fcefe6;
 $crema: #b17468;
+$fondoP5: #D06139;
 
 *{
   padding: 0;
@@ -32,10 +33,13 @@ canvas{
 
 #loading{
   height: 100%;
-  background: $crema;
+  background: $fondoP5;
   width: 100%;
   position: fixed;
   z-index: 1000;
+  font-size: 4em;
+  color: white;
+  text-align: center;
 }
 
 #wrapper{
