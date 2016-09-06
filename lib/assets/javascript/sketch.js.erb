@@ -5,9 +5,9 @@ var flotar = 0;
 function setup() {
 
   createCanvas(innerWidth, innerHeight);
-  img = loadImage("/assets/gradLoading.png");
+  img = loadImage("<%= asset_path 'gradLoading.png' %>");
   image(img, 0, 0, innerWidth, innerHeight);
-  monje = loadImage("/assets/monje-load.png");
+  monje = loadImage("<%= asset_path 'monje-load.png' %>");
 
   part = new Particula()
 }
