@@ -1,5 +1,5 @@
 var particulas = [];
-var part, img, monje;
+var part, img, monjeLoad;
 var flotar = 0;
 
 function setup() {
@@ -7,7 +7,7 @@ function setup() {
   createCanvas(innerWidth, innerHeight);
   img = loadImage("<%= asset_path 'gradLoading.png' %>");
   image(img, 0, 0, innerWidth, innerHeight);
-  monje = loadImage("<%= asset_path 'monje-load.png' %>");
+  monjeLoad = loadImage("<%= asset_path 'monje-load.png' %>");
 
   part = new Particula()
 }
@@ -22,7 +22,7 @@ function draw() {
     translate(innerWidth/2, innerHeight/2)
     blendMode(MULTIPLY);
     tint(255, 190);
-    image(monje, -monje.width/4, -50 + flotar, monje.width/2, monje.height/2);
+    image(monjeLoad, -monjeLoad.width/4, -50 + flotar, monjeLoad.width/2, monjeLoad.height/2);
 
     fill(0, 50 + flotar);
     ellipse(-5  , 180, 100 - flotar/2, 40 - flotar/2);

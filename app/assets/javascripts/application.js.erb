@@ -25,6 +25,7 @@ var logo,
     bambu2,
     bambu3,
     bambu4,
+    bambu5,
 
     globoInfo,
     globoPlay,
@@ -51,8 +52,9 @@ $(document).ready(function(){
     monje = new Parallax( $('.monje'), -0.09),
     bambu1 = new Parallax( $('.bambu1'), -0.15),
     bambu2 = new Parallax( $('.bambu2'), -0.15),
-    bambu3 = new Parallax( $('.bambu3'), -0.2),
-    bambu4 = new Parallax( $('.bambu4'), -0.2),
+    bambu3 = new Parallax( $('.bambu3'), -0.08),
+    bambu4 = new Parallax( $('.bambu4'), -0.06),
+    bambu5 = new Parallax( $('.bambu5'), -0.15),
 
 
     globoVideo = new Parallax( $('#g_video'), -0.12),
@@ -106,6 +108,7 @@ $(document).ready(function(){
 
   var bol = true;
   $('#g_play').on('click', function(){
+    $(this).toggleClass("fa-flip-horizontal");
     scrolling(bol);
     bol = !bol;
   });
@@ -113,6 +116,7 @@ $(document).ready(function(){
   var clickAb = false;
   $('#g_info').click(function(event){
     if (clickAb == false) {
+      $(this).attr('class', 'btn fa fa-times');
       $('#about').slideDown({
         easing: 'easeInOutBack',
         duration: 1000
@@ -120,6 +124,7 @@ $(document).ready(function(){
       desplazar(globoInfo, 200, 0, 2000, true);
       clickAb = !clickAb;
     }else if (clickAb == true) {
+      $(this).attr('class', 'btn fa fa-info');
       $('#about').slideUp({
         easing: 'easeInOutBack',
         duration: 1000
@@ -139,15 +144,18 @@ $(document).ready(function(){
       $('#video').append(promoVideo);
       $('#video').fadeIn();
       $('footer').slideUp();
+      $(this).attr('class', 'btn fa fa-stop');
 
       desplazar(globoVideo, ww/2, -wh/3, 2000, true);
       clickVid = !clickVid;
 
     }else if (clickVid == true) {
+      $(this).attr('class', 'btn fa fa-play');
       $('#video').fadeOut(function(){
         $('iframe', this).remove();
         $('footer').delay(1000).slideDown(1000);
         $('#bloque').hide();
+
       });
       desplazar(globoVideo, 0, 0, 2000, true);
       clickVid = !clickVid;
@@ -177,7 +185,7 @@ $(window).load(function() {
   $('#loading').delay(2000).fadeOut(1000,function(){
     $(this).remove();
   });
-  $('canvas').delay(3000).fadeOut(2000, function(){
+  $('canvas').delay(5000).fadeOut(2000, function(){
     $(this).remove();
   });
 });
