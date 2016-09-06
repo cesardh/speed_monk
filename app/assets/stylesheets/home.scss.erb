@@ -7,6 +7,7 @@
 
 $fondo: #7f5858;
 $cuadros: url(<%= asset_path 'cuadros.png' %>);
+$gradiente: url(<%= asset_path 'gradLoading.png' %>);
 
 $j1: url(<%= asset_path 'juego1.png' %>);
 $j2: url(<%= asset_path 'juego2.png' %>);
@@ -33,7 +34,9 @@ canvas{
 
 #loading{
   height: 100%;
-  background: $fondoP5;
+  background-color: black;
+  background-image: $gradiente;
+  background-size: 100% 100%;
   width: 100%;
   position: fixed;
   z-index: 1000;
@@ -149,7 +152,7 @@ canvas{
   z-index: 202;
 }
 
-iframe{
+#promo{
   width: 100%;
   height: 100%;
 }
@@ -181,7 +184,6 @@ iframe{
 
 .bambus{
   height: 150%;
-  //opacity: 0.8;
   top: -15%;
 }
 

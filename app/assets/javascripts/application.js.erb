@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree.
 
+
 var logo,
     monje,
     templo,
@@ -34,7 +35,7 @@ var globo = [];
 
 var idUrl = 'fY9Kndy0ZMs';
 var urlPromo = 'https://www.youtube.com/embed/' + idUrl;
-var idPromo = '#promo';
+var idPromo = 'promo';
 var promoVideo =
   '<iframe '
   +'src="' + urlPromo
@@ -173,8 +174,12 @@ $(document).ready(function(){
 
 
 $(window).load(function() {
-  $('#loading').remove();
-  $('canvas').delay(3000).fadeOut(1000);
+  $('#loading').delay(2000).fadeOut(1000,function(){
+    $(this).remove();
+  });
+  $('canvas').delay(3000).fadeOut(2000, function(){
+    $(this).remove();
+  });
 });
 
 
