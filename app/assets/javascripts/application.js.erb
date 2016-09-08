@@ -113,6 +113,8 @@ $(document).ready(function(){
     bol = !bol;
   });
 
+
+
   var clickAb = false;
   $('#g_info').click(function(event){
     if (clickAb == false) {
@@ -248,9 +250,9 @@ function scrolling(boolean){
 
   if (boolean == true) {
 
-    var calcW = ww/4;
+    var calcW = (ww - 1000)/2 + 70;
     desplazar(globoPlay, calcW, 0, 2500, false);
-    desplazar(logo, ww/1.2, -10, 1500, true);
+    desplazar(logo, ww - 250, -10, 1500, true);
     desplazar(monje, -1000, 0 , 1500, true);
     desplazar(templo, 0, -1000 , 1500, false)
     desplazar(bambu2, 100, 0, 3000, false);
