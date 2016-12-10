@@ -1,28 +1,13 @@
-== README
+== Speed Monk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Diseño y desarrollo de landing page para sitio web interáctivo con acceso a tres mini juegos (En desarrollo) educativos. Ilustración y concepto creado por Daniel Romero (WithoutBrain)
 
-Things you may want to cover:
+* Ruby
 
-* Ruby version
+* ROR
 
-* System dependencies
+* JavaScript
 
-* Configuration
+* Jquery
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* P5.JS
